@@ -41,8 +41,11 @@
       "date_end": null,
       "summary": "Programmatic SEO & ranking systems.",
       "bullets": [
-        "AEO/SEO insights and ranking tooling",
-        "Details forthcoming"
+        "Programmatic SEO powered: generate SEO-optimized pages at scale using templates + data sources for long-tail visibility.",
+        "AI-assisted insights to monitor ranking shifts, compare competitor performance, and spot content gaps before rivals do.",
+        "Hybrid answer-engine & search visibility — optimizing for both traditional SERPs and conversational / generative Q&A platforms.",
+        "Built with robust infrastructure: Node.js + Next.js core, real-time metrics, and analytics dashboards for SEO pipelines.",
+        "SEO audit & recommendations baked in — page load, Core Web Vitals, performance tunings, accessibility, and metadata completeness."
       ],
       "screenshot": "/images/ranklabs.png",
       "cta_url": null

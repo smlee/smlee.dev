@@ -40,7 +40,7 @@ export default function LandingProducts({ products }: { products: Product[] }) {
             <div className="mt-5 flex gap-3">
               {p.cta_url ? (
                 <Button asChild variant="outline">
-                  <a href={p.cta_url} target="_blank" rel="noreferrer">{p.name?.toLowerCase() === 'mindcraftor' ? 'Learn More' : 'View Case Study'}</a>
+                  <a href={p.cta_url} target="_blank" rel="noreferrer">{p.cta_url?.startsWith('http') ? 'Visit Website' : 'Learn More'}</a>
                 </Button>
               ) : (
                 <Button variant="outline" disabled>
