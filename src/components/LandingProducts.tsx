@@ -31,7 +31,7 @@ export default function LandingProducts({ products }: { products: Product[] }) {
               <p className="mt-2 text-base text-white/80">{p.summary}</p>
             )}
             {p.bullets && p.bullets.length > 0 && (
-              <ul className="mt-4 grid gap-1 text-sm text-white/60 list-disc list-inside">
+              <ul className="mt-4 mb-4 grid gap-1 text-sm text-white/60 list-disc list-inside">
                 {p.bullets.map((b, j) => (
                   <li key={`${i}-${j}`}>{b}</li>
                 ))}

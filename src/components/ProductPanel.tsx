@@ -48,7 +48,7 @@ export default function ProductPanel({ products }: { products: Product[] }) {
               </CardHeader>
               <CardContent className="flex flex-col h-full">
                 {p.bullets && p.bullets.length > 0 && (
-                  <ul className="mt-2 grid gap-1.5 text-sm text-muted-foreground list-disc list-inside">
+                  <ul className="mt-2 mb-4 grid gap-1.5 text-sm text-muted-foreground list-disc list-inside">
                     {p.bullets.map((pt, j) => (
                       <li key={`${i}-${j}`}>{pt}</li>
                     ))}
@@ -72,12 +72,12 @@ export default function ProductPanel({ products }: { products: Product[] }) {
             </Card>
           </div>
           <div>
-            <Card className="rounded-xl h-full overflow-hidden border-0 shadow-none p-0">
-              <div className="rounded-md overflow-hidden border border-white/10">
-                <div className="px-3 py-2 border-b border-white/10 flex items-center gap-1 window-chrome">
+            <div className="rounded-xl h-full overflow-hidden p-0 bg-transparent">
+              <div className="rounded-md overflow-hidden border border-white/10 bg-transparent">
+                <div className="px-3 py-2 border-b border-white/10 flex items-center gap-1 window-chrome bg-transparent">
                   <span className="window-dot" /><span className="window-dot" /><span className="window-dot" />
                 </div>
-                <div className="aspect-[16/10] grid place-items-center text-sm text-muted-foreground bg-black/20">
+                <div className="aspect-[16/10] grid place-items-center text-sm text-muted-foreground bg-transparent">
                   {p.screenshot ? (
                     <Image src={p.screenshot} alt={`${p.name ?? 'Product'} — screenshot`} width={1600} height={1000} className="w-full h-full object-cover" />
                   ) : (
@@ -85,7 +85,7 @@ export default function ProductPanel({ products }: { products: Product[] }) {
                   )}
                 </div>
               </div>
-            </Card>
+            </div>
           </div>
         </motion.div>
       ))}

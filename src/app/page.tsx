@@ -49,7 +49,12 @@ export default function Home() {
       <main className="relative mx-auto max-w-7xl px-6 md:px-8 pt-6 md:pt-8 pb-14 md:pb-16 space-y-12 md:space-y-16">
         {/* Page-specific metrics if provided in pack */}
         <LandingMetrics left={homeMetrics?.left} right={homeMetrics?.right} />
-        <LandingProducts products={products} />
+        {(() => {
+          const filtered = products.filter(
+            (p) => p?.name !== 'Free Tunnel Server' && p?.name !== 'Free Tunnel Client'
+          );
+          return <LandingProducts products={filtered} />;
+        })()}
       </main>
       {/* Highlights section with a faint background to break flow */}
       <div className="full-bleed bg-card/20 border-t border-white/10">
