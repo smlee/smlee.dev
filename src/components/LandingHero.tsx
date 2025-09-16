@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 export default function LandingHero({
@@ -20,14 +17,7 @@ export default function LandingHero({
       {/* Overlays apply to the entire hero, keep subtle and avoid boxed feel */}
       <div className="hero-vignette" />
       <div className="hero-noise" />
-
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative max-w-4xl mx-auto"
-      >
+      <div className="relative max-w-4xl mx-auto">
         <h1 className="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-white">
           {tagline ?? name ?? "—"}
         </h1>
@@ -49,7 +39,7 @@ export default function LandingHero({
             <Link href="/hire">Work with Me as a freelancer</Link>
           </Button>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

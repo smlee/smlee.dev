@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 
@@ -21,13 +18,7 @@ export default function LandingExperience({ items }: { items: Exp[] }) {
       <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-6">Experience</h2>
       <div className="grid gap-6 md:grid-cols-3 items-stretch">
         {top.map((it, i) => (
-          <motion.div
-            key={`${i}-${it.role ?? 'exp'}`}
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.35, delay: i * 0.05 }}
-          >
+          <div key={`${i}-${it.role ?? 'exp'}`}>
             <Card className="rounded-md border p-4 h-full">
               {/* Header: logo + stacked company/role on left, date on right */}
               <div className="flex items-start justify-between gap-3">
@@ -58,7 +49,7 @@ export default function LandingExperience({ items }: { items: Exp[] }) {
                 </ul>
               )}
             </Card>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>
