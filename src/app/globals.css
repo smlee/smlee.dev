@@ -134,6 +134,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  height: 45px; /* match UI Button default height */
   border-radius: 0.75rem; /* rounded-xl */
   padding: 0.75rem 1.25rem; /* py-3 px-5 */
   font-size: 0.875rem; /* text-sm */

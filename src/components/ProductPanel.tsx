@@ -22,9 +22,8 @@ export default function ProductPanel({ products }: { products: Product[] }) {
         <motion.div
           key={`${p.name ?? 'product'}-${i}`}
           initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, delay: i * 0.05 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: i * 0.05, ease: 'easeOut' }}
           className={`grid items-stretch gap-8 md:grid-cols-2 ${i % 2 === 1 ? 'md:[&>*:first-child]:order-2' : ''}`}
         >
           <div>
@@ -47,7 +46,7 @@ export default function ProductPanel({ products }: { products: Product[] }) {
                   <CardDescription className="mt-2">{p.summary}</CardDescription>
                 )}
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex flex-col h-full">
                 {p.bullets && p.bullets.length > 0 && (
                   <ul className="mt-2 grid gap-1.5 text-sm text-muted-foreground list-disc list-inside">
                     {p.bullets.map((pt, j) => (
@@ -55,7 +54,7 @@ export default function ProductPanel({ products }: { products: Product[] }) {
                     ))}
                   </ul>
                 )}
-                <div className="mt-4 flex gap-3">
+                <div className="mt-4 flex gap-3 mt-auto">
                   {p.cta_url ? (
                     <a
                       href={p.cta_url}

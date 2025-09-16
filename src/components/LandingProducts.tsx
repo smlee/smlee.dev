@@ -23,9 +23,9 @@ export default function LandingProducts({ products }: { products: Product[] }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, delay: i * 0.05 }}
-          className={`grid items-center gap-8 md:grid-cols-2 ${i % 2 === 1 ? 'md:[&>*:first-child]:order-2' : ''}`}
+          className={`grid items-stretch gap-8 md:grid-cols-2 ${i % 2 === 1 ? 'md:[&>*:first-child]:order-2' : ''}`}
         >
-          <div>
+          <div className="flex flex-col h-full">
             <h2 className="text-3xl font-semibold tracking-tight">{p.name ?? '—'}</h2>
             {p.summary && (
               <p className="mt-2 text-base text-white/80">{p.summary}</p>
@@ -37,13 +37,13 @@ export default function LandingProducts({ products }: { products: Product[] }) {
                 ))}
               </ul>
             )}
-            <div className="mt-5 flex gap-3">
+            <div className="mt-5 flex gap-3 mt-auto">
               {p.cta_url ? (
-                <Button asChild variant="outline">
+                <Button asChild variant="default">
                   <a href={p.cta_url} target="_blank" rel="noreferrer">{p.cta_url?.startsWith('http') ? 'Visit Website' : 'Learn More'}</a>
                 </Button>
               ) : (
-                <Button variant="outline" disabled>
+                <Button variant="default" disabled>
                   Coming Soon
                 </Button>
               )}
