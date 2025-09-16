@@ -1,0 +1,158 @@
+{
+  "person": {
+    "name": "Sangmin Lee",
+    "tagline": "Full-Stack Engineer & SaaS Founder",
+    "subtext": "I’m Sangmin Lee, a full-stack engineer with over 10 years of experience building and scaling complex systems, and the founder of Mindcraftor and RankLabs, where I turn ambitious ideas into usable products.",
+    "location": "Palisades Park, NJ",
+    "email": "sangmlee23@gmail.com",
+    "links": {
+      "github": "https://github.com/smlee", 
+      "linkedin": "https://www.linkedin.com/in/smlee23",
+      "resume_url": "/Sangmin-Lee-Resume-2025.pdf"
+    }
+  },
+
+  "stats": {
+    "years_experience": "10+",
+    "products_built": "12+",
+    "startups_founded": "3",
+    "repos_count": "100+"
+  },
+
+  "products": [
+    {
+      "name": "Mindcraftor",
+      "status": "Co-Founder",
+      "date_start": "2025-03",
+      "date_end": null,
+      "summary": "AI SaaS platform for idea generation, validation, and autonomous CX.",
+      "bullets": [
+        "Built with Next.js, Node.js, Supabase, Stripe",
+        "RAG workflows with integrated analytics",
+        "Early user adoption (exact count not published)"
+      ],
+      "screenshot": "/images/mindcraftor.png",
+      "cta_url": "https://mindcraftor.ai"
+    },
+    {
+      "name": "RankLabs",
+      "status": "Founder",
+      "date_start": "2025-08",
+      "date_end": null,
+      "summary": "Programmatic SEO & ranking systems.",
+      "bullets": [
+        "AEO/SEO insights and ranking tooling",
+        "Details forthcoming"
+      ],
+      "screenshot": "/images/ranklabs.png",
+      "cta_url": null
+    },
+    {
+      "name": "Free Tunnel Server",
+      "status": "Source Available",
+      "date_start": "2025-09",
+      "date_end": null,
+      "summary": "Lightweight reverse-tunnel server for exposing local services securely.",
+      "bullets": [
+        "Zero-cost, self-hostable tunnel endpoint",
+        "Token-based client auth with simple Node setup",
+        "Great for demos, webhooks, and local testing"
+      ],
+      "screenshot": null,
+      "cta_url": "https://www.npmjs.com/package/@smlee/free-tunnel-server"
+    },
+    {
+      "name": "Free Tunnel Client",
+      "status": "Source Available",
+      "date_start": "2025-09",
+      "date_end": null,
+      "summary": "CLI client to create public URLs for local ports via the Free Tunnel server.",
+      "bullets": [
+        "One command to expose localhost",
+        "Works with any HTTP service (webhooks, previews)",
+        "Small footprint, quick to install"
+      ],
+      "screenshot": null,
+      "cta_url": "https://www.npmjs.com/package/@smlee/free-tunnel"
+    }
+  ],
+
+  "experience": [
+    {
+      "role": "Co-Founder",
+      "company": "Mindcraftor",
+      "date_start": "2025-03",
+      "date_end": null,
+      "bullets": [
+        "End-to-end product build: Next.js, Node.js, Supabase, Stripe",
+        "Idea generation, validation engine, autonomous CX agent",
+        "RAG workflows + analytics"
+      ]
+    },
+    {
+      "role": "Experimental Engineer",
+      "company": "SAE.SO",
+      "date_start": "2021-06",
+      "date_end": null,
+      "bullets": [
+        "Client-side A/B tests on Next.js/WordPress (Optimizely/Google Optimize)",
+        "DOM-diffing & MutationObserver patterns for restricted environments"
+      ]
+    },
+    {
+      "role": "Senior Research Scientist",
+      "company": "Peraton Labs",
+      "date_start": "2021-01",
+      "date_end": "2025-05",
+      "bullets": [
+        "Reduced UI load times by 28%",
+        "Secure interactive 3D geospatial visualization with CesiumJS",
+        "Accessibility & federal compliance collaboration"
+      ]
+    },
+    {
+      "role": "Senior Full-Stack Engineer",
+      "company": "Verdocs",
+      "date_start": "2016-12",
+      "date_end": "2021-01",
+      "bullets": [
+        "Node.js + Angular enterprise apps from inception to scale",
+        "Roadmap collaboration, mentoring, and best practices"
+      ]
+    },
+    {
+      "role": "Lead Front-End Developer",
+      "company": "Complex Networks",
+      "date_start": "2015-09",
+      "date_end": "2016-12",
+      "bullets": [
+        "Migrated legacy Laravel to Angular/React + Node.js",
+        "Improved responsiveness and conversion with CRO team"
+      ]
+    }
+  ],
+
+  "skills": [
+    "TypeScript","Next.js","React","Node.js","Fastify","Postgres",
+    "Supabase","Stripe","Redis","CesiumJS","Tailwind","Framer Motion","Nginx","PM2","Optimizely","Angular"
+  ],
+
+  "hire": {
+    "services": [
+      "Full-stack delivery (Next.js + Node + Supabase + Stripe)",
+      "Experimentation & analytics (Optimizely, A/B frameworks)",
+      "Performance & UX (Core Web Vitals, accessibility)"
+    ],
+    "packages": [
+      "Sprint (1 week): scoped fix or feature",
+      "Build (2–4 weeks): MVP",
+      "Partner (monthly): ongoing improvements"
+    ]
+  },
+
+  "assertions": {
+    "fail_on_todo": true,
+    "forbid_guesses": true,
+    "render_missing_as": "—"
+  }
+}
