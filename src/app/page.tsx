@@ -6,6 +6,15 @@ import LandingStatsBar from "@/components/LandingStatsBar";
 import LandingHighlights from "@/components/LandingHighlights";
 import { loadContentPack } from "@/lib/content";
 
+const siteBase = process.env.NEXT_PUBLIC_SITE_URL || 'https://smlee.dev';
+export const metadata = {
+  title: 'Sangmin Lee — smlee.dev',
+  description: 'Full‑Stack Engineer & SaaS Founder in NJ. 10+ years building production systems, experimentation frameworks, and performance‑driven products.',
+  alternates: {
+    canonical: siteBase,
+  },
+};
+
 export default function Home() {
   const content = loadContentPack();
   const person = content.person ?? {};

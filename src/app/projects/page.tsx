@@ -15,6 +15,20 @@ export default function ProjectsPage() {
   const products = content.products ?? [];
   return (
     <main className="relative mx-auto max-w-7xl px-6 md:px-8 py-16 md:py-20 space-y-8">
+      {/* Breadcrumbs JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": siteBase },
+              { "@type": "ListItem", "position": 2, "name": "Projects", "item": `${siteBase}/projects` },
+            ]
+          }),
+        }}
+      />
       <h1 className="text-3xl font-bold">Projects</h1>
       {/* JSON-LD: CreativeWork for each project */}
       <script

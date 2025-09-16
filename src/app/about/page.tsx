@@ -17,10 +17,24 @@ export default function AboutPage() {
   const experience = content.experience ?? [];
   const skills = content.skills ?? [];
   const summary: string | undefined =
-    (content as any)?.about?.summary ?? content?.person?.subtext ?? undefined;
+    (content as { about?: { summary?: string } } | null)?.about?.summary ?? content.person?.subtext ?? undefined;
 
   return (
     <main className="container mx-auto px-4 py-12 space-y-12">
+      {/* Breadcrumbs JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": siteBase },
+              { "@type": "ListItem", "position": 2, "name": "About", "item": `${siteBase}/about` },
+            ]
+          }),
+        }}
+      />
       <h1 className="text-3xl font-bold">About</h1>
 
       {/* Personal Intro */}
