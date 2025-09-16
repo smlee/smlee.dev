@@ -126,7 +126,7 @@ export default function RootLayout({
             }),
           }}
         />
-        <Nav brand={person.name} links={navLinks} />
+        <Nav brand={person.name} links={navLinks} socials={person.links} />
         {children}
         <Footer name={person.name} links={person.links} email={person.email} resumeUrl={person.links?.resume_url ?? null} />
       </body>

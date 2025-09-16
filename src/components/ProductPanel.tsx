@@ -63,7 +63,7 @@ export default function ProductPanel({ products }: { products: Product[] }) {
                       rel="noreferrer"
                       className="btn btn-primary"
                     >
-                      {p.name?.toLowerCase() === 'mindcraftor' ? 'Learn More' : 'Learn More'}
+                      {p.cta_url?.startsWith('http') ? 'Visit Website' : 'Learn More'}
                     </a>
                   ) : (
                     <span className="btn btn-ghost opacity-70 pointer-events-none">Coming Soon</span>

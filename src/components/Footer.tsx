@@ -7,7 +7,7 @@ export default function Footer({
   resumeUrl,
 }: {
   name?: string;
-  links?: { github?: string | null; linkedin?: string | null } | null;
+  links?: { github?: string | null; linkedin?: string | null; twitter?: string | null } | null;
   email?: string | null;
   resumeUrl?: string | null;
 }) {
@@ -35,6 +35,9 @@ export default function Footer({
           <nav className="flex items-center gap-4">
             {links?.github && (
               <Link href={links.github} target="_blank" className="hover:underline">GitHub</Link>
+            )}
+            {links?.twitter && (
+              <Link href={links.twitter} target="_blank" className="hover:underline">Twitter</Link>
             )}
             {links?.linkedin && (
               <Link href={links.linkedin} target="_blank" className="hover:underline">LinkedIn</Link>
