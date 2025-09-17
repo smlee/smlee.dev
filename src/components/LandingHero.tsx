@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import styles from "./LandingHero.module.css";
 
 export default function LandingHero({
   name,
@@ -13,10 +14,10 @@ export default function LandingHero({
   resumeUrl?: string | null;
 }) {
   return (
-    <section className="relative overflow-hidden gradient-hero py-16 md:py-20 px-6 text-center">
+    <section className={`relative overflow-hidden ${styles.gradientHero} py-16 md:py-20 px-6 text-center`}>
       {/* Overlays apply to the entire hero, keep subtle and avoid boxed feel */}
-      <div className="hero-vignette" />
-      <div className="hero-noise" />
+      <div className={styles.heroVignette} />
+      <div className={styles.heroNoise} />
       <div className="relative max-w-4xl mx-auto">
         <h1 className="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-white">
           {tagline ?? name ?? "—"}

@@ -1,0 +1,16 @@
+/* Moved from globals.css to reduce render-blocking global CSS */
+.gradientHero {
+  /* Slanted elliptical navy gradient matching mock */
+  background-color: #0b1220; /* base navy */
+  /* Single stretched ellipse, clearly off-canvas TOP-LEFT -> thinning to BOTTOM-RIGHT */
+  background-image:
+    radial-gradient(ellipse 1700px 1100px at 0% 0%,
+      rgb(99 102 241 / 0.62) 0%,
+      rgb(59 130 246 / 0.50) 30%,
+      rgb(59 130 246 / 0.00) 58%
+    );
+  background-repeat: no-repeat;
+}
+
+.heroVignette { display: none; }
+.heroNoise { display: none; }
