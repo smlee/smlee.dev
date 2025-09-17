@@ -32,7 +32,7 @@ export default function LandingHero({
           </Button>
           {resumeUrl && (
             <Button asChild variant="outline" className="rounded-full px-6 border-white/20 hover:bg-white/5">
-              <Link href={resumeUrl}>View Resume</Link>
+              <a href={resumeUrl} target="_blank" rel="noopener noreferrer">View Resume</a>
             </Button>
           )}
           <Button asChild variant="outline" className="rounded-full px-6 border-white/20 hover:bg-white/5">

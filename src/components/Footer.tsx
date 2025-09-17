@@ -24,7 +24,7 @@ export default function Footer({
           </div>
           <div className="flex gap-3">
             {resumeUrl && (
-              <Link href={resumeUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">View Resume</Link>
+              <a href={resumeUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">View Resume</a>
             )}
             <Link href="/hire" className="btn btn-ghost">Hire Me</Link>
           </div>
