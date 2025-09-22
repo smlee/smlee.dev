@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -128,10 +129,12 @@ export default function RootLayout({
             }),
           }}
         />
-        <Analytics />  {/* Analytics tracking */}
+        <Suspense fallback={null}>
+          <Analytics />  {/* Analytics tracking */}
+        </Suspense>
         <Nav brand={person.name} links={navLinks} socials={person.links} />
         {children}
-        <Footer name={person.name} links={person.links} email={person.email} resumeUrl={person.links?.resume_url ?? null} />
+        <Footer name={person.name} links={person.links} email={person.email} />
         <CookieConsent privacyPolicyUrl="/privacy-policy" />
       </body>
     </html>

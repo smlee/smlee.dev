@@ -13,8 +13,8 @@ export default function PrivacyPolicyPage() {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
         <p className="mb-4">
-          This Privacy Policy explains how smlee.dev ("we", "us", or "our") collects, uses, and shares your information 
-          when you visit our website at https://smlee.dev (the "Site").
+          This Privacy Policy explains how smlee.dev (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) collects, uses, and shares your information 
+          when you visit our website at https://smlee.dev (the &quot;Site&quot;).
         </p>
         <p className="mb-4">
           By using the Site, you agree to the collection and use of information in accordance with this policy.
@@ -30,7 +30,7 @@ export default function PrivacyPolicyPage() {
         <h3 className="text-xl font-medium mt-6 mb-3">Personal Data</h3>
         <p className="mb-4">
           While using our Site, we may ask you to provide us with certain personally identifiable information 
-          that can be used to contact or identify you ("Personal Data"). This may include, but is not limited to:
+          that can be used to contact or identify you (&quot;Personal Data&quot;). This may include, but is not limited to:
         </p>
         <ul className="list-disc pl-6 mb-4">
           <li>Email address (if you contact us)</li>
@@ -40,8 +40,8 @@ export default function PrivacyPolicyPage() {
         
         <h3 className="text-xl font-medium mt-6 mb-3">Usage Data</h3>
         <p className="mb-4">
-          We may also collect information on how the Site is accessed and used ("Usage Data"). 
-          This Usage Data may include information such as your computer's Internet Protocol address (IP address), 
+          We may also collect information on how the Site is accessed and used (&quot;Usage Data&quot;). 
+          This Usage Data may include information such as your computer&apos;s Internet Protocol address (IP address), 
           browser type, browser version, the pages of our Site that you visit, the time and date of your visit, 
           the time spent on those pages, unique device identifiers, and other diagnostic data.
         </p>

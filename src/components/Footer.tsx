@@ -4,12 +4,10 @@ export default function Footer({
   name,
   links,
   email,
-  resumeUrl,
 }: {
   name?: string;
   links?: { github?: string | null; linkedin?: string | null; twitter?: string | null } | null;
   email?: string | null;
-  resumeUrl?: string | null;
 }) {
   const year = new Date().getFullYear();
   return (
@@ -18,9 +16,9 @@ export default function Footer({
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
           {/* CTA Section */}
           <div className="lg:col-span-2 space-y-6">
-            <h2 className="text-2xl font-semibold">Let's Build Something</h2>
+            <h2 className="text-2xl font-semibold">Let&apos;s Build Something</h2>
             <p className="text-muted-foreground max-w-md">
-              I'm open to senior engineering roles and select freelance projects. If you're building something ambitious, let's talk.
+              I&apos;m open to senior engineering roles and select freelance projects. If you&apos;re building something ambitious, let&apos;s talk.
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Link href="/resume" className="btn btn-primary">View Resume</Link>

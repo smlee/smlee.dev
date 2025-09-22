@@ -101,7 +101,7 @@ export function CookieConsent({
               <h2 className="text-lg font-semibold mb-2">Cookie Consent</h2>
               <p className="text-sm text-muted-foreground mb-2">
                 This website uses cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. 
-                By clicking "Accept All", you consent to our use of cookies.
+                By clicking &quot;Accept All&quot;, you consent to our use of cookies.
               </p>
               <p className="text-sm text-muted-foreground">
                 <a href={privacyPolicyUrl} className="underline hover:text-primary">
