@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { Analytics } from "@/components/Analytics";
+import { CookieConsent } from "@/components/CookieConsent";
 import { loadContentPack } from "@/lib/content";
 import { listPosts } from "@/lib/posts";
 
@@ -126,9 +128,11 @@ export default function RootLayout({
             }),
           }}
         />
+        <Analytics />  {/* Analytics tracking */}
         <Nav brand={person.name} links={navLinks} socials={person.links} />
         {children}
         <Footer name={person.name} links={person.links} email={person.email} resumeUrl={person.links?.resume_url ?? null} />
+        <CookieConsent privacyPolicyUrl="/privacy-policy" />
       </body>
     </html>
   );

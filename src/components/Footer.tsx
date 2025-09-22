@@ -13,39 +13,58 @@ export default function Footer({
 }) {
   const year = new Date().getFullYear();
   return (
-    <footer className="mt-16 border-t border-white/10">
-      <div className="container mx-auto px-4 py-10 space-y-8">
-        <div className="card py-16 px-6 space-y-6">
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <h2 className="text-2xl font-semibold">Let’s Build Something</h2>
-            <p className="text-muted-foreground">
-              I’m open to senior engineering roles and select freelance projects. If you’re building something ambitious, let’s talk.
+    <footer className="mt-16 border-t border-white/10 bg-gradient-to-b from-background to-black/30">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
+          {/* CTA Section */}
+          <div className="lg:col-span-2 space-y-6">
+            <h2 className="text-2xl font-semibold">Let's Build Something</h2>
+            <p className="text-muted-foreground max-w-md">
+              I'm open to senior engineering roles and select freelance projects. If you're building something ambitious, let's talk.
             </p>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Link href="/resume" className="btn btn-primary">View Resume</Link>
+              <Link href="/hire" className="btn btn-ghost">Hire Me</Link>
+            </div>
           </div>
-          <div className="flex gap-3">
-            {resumeUrl && (
-              <a href={resumeUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">View Resume</a>
-            )}
-            <Link href="/hire" className="btn btn-ghost">Hire Me</Link>
+
+          {/* Site Map */}
+          <div>
+            <h3 className="font-medium mb-4 text-lg">Site Map</h3>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
+              <li><Link href="/" className="hover:underline hover:text-foreground transition-colors">Home</Link></li>
+              <li><Link href="/about" className="hover:underline hover:text-foreground transition-colors">About</Link></li>
+              <li><Link href="/projects" className="hover:underline hover:text-foreground transition-colors">Projects</Link></li>
+              <li><Link href="/resume" className="hover:underline hover:text-foreground transition-colors">Resume</Link></li>
+              <li><Link href="/hire" className="hover:underline hover:text-foreground transition-colors">Hire</Link></li>
+              <li><Link href="/privacy-policy" className="hover:underline hover:text-foreground transition-colors">Privacy Policy</Link></li>
+            </ul>
+          </div>
+          
+          {/* Connect */}
+          <div>
+            <h3 className="font-medium mb-4 text-lg">Connect</h3>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
+              {links?.github && (
+                <li><Link href={links.github} target="_blank" className="hover:underline hover:text-foreground transition-colors">GitHub</Link></li>
+              )}
+              {links?.twitter && (
+                <li><Link href={links.twitter} target="_blank" className="hover:underline hover:text-foreground transition-colors">Twitter</Link></li>
+              )}
+              {links?.linkedin && (
+                <li><Link href={links.linkedin} target="_blank" className="hover:underline hover:text-foreground transition-colors">LinkedIn</Link></li>
+              )}
+              {email && (
+                <li><Link href={`mailto:${email}`} className="hover:underline hover:text-foreground transition-colors">Email</Link></li>
+              )}
+            </ul>
           </div>
         </div>
-
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p suppressHydrationWarning>© {year} {name ?? '—'}</p>
-          <nav className="flex items-center gap-4">
-            {links?.github && (
-              <Link href={links.github} target="_blank" className="hover:underline">GitHub</Link>
-            )}
-            {links?.twitter && (
-              <Link href={links.twitter} target="_blank" className="hover:underline">Twitter</Link>
-            )}
-            {links?.linkedin && (
-              <Link href={links.linkedin} target="_blank" className="hover:underline">LinkedIn</Link>
-            )}
-            {email && (
-              <Link href={`mailto:${email}`} className="hover:underline">Email</Link>
-            )}
-          </nav>
+        
+        {/* Copyright */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground pt-8 mt-10 border-t border-white/10">
+          <p suppressHydrationWarning> {year} {name ?? '—'}</p>
+          <p className="text-xs">Built with Next.js</p>
         </div>
       </div>
     </footer>

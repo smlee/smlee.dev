@@ -1,5 +1,69 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Live Site
+
+Visit the production site here:
+
+https://smlee.dev
+
+## Analytics
+
+This project uses a modular analytics system with Google Analytics 4 (GA4).
+
+### Configuration
+
+To enable analytics, set the following environment variable in your `.env.local` file:
+
+```
+# Google Analytics Configuration
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX  # Your GA4 Measurement ID
+```
+
+### Setting up Google Analytics
+
+1. Go to [Google Analytics](https://analytics.google.com/) and sign in
+2. Create a new property (GA4)
+3. Set up a web data stream for your site
+4. Copy the Measurement ID (starts with G-)
+5. Add the Measurement ID to your environment variables
+
+### Usage
+
+Analytics are automatically initialized in the root layout and will track page views by default.
+
+To track custom events in your components:
+
+```tsx
+'use client';
+import { useAnalytics } from '@/lib/analytics/hooks';
+
+export default function MyComponent() {
+  const { trackEvent, trackOutboundLink } = useAnalytics();
+  
+  const handleClick = () => {
+    trackEvent({
+      name: 'button_click',
+      properties: {
+        button: 'signup',
+        location: 'hero'
+      }
+    });
+  };
+  
+  return (
+    <div>
+      <button onClick={handleClick}>Sign Up</button>
+      <a 
+        href="https://example.com" 
+        onClick={() => trackOutboundLink('https://example.com', 'Example Link')}
+      >
+        External Link
+      </a>
+    </div>
+  );
+}
+```
+
 ## Getting Started
 
 First, run the development server:
