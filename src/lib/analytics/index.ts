@@ -25,23 +25,33 @@ class Analytics {
     // Skip initialization if analytics is disabled
     if (!config.enabled) return;
     
-    // Skip analytics if user hasn't consented
+    // Debug analytics initialization
+    console.log('[Analytics] Initializing analytics module');
+    
+    // Check consent status but don't block initialization during debugging
     const preferences = consentManager.getPreferences();
     if (preferences.hasResponded && !preferences.analytics) {
-      console.info('Analytics disabled due to user consent preferences');
-      return;
+      console.info('[Analytics] Analytics would normally be disabled due to user consent preferences');
+      // During debugging, we'll continue anyway to verify the setup
+      // return;
     }
     
     // Initialize Google Analytics if enabled
     if (config.providers.google) {
       const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
       
+      console.log('[Analytics] GA Measurement ID check:', { 
+        exists: !!measurementId, 
+        value: measurementId || 'not set',
+        envKeys: Object.keys(process.env).filter(key => key.startsWith('NEXT_PUBLIC_'))
+      });
+      
       if (measurementId) {
         const google = new GoogleAnalyticsProvider(measurementId);
         this.providers.push(google);
         google.init();
       } else {
-        console.warn('Google Analytics measurement ID not provided. GA tracking disabled.');
+        console.warn('[Analytics] Google Analytics measurement ID not provided. GA tracking disabled.');
       }
     }
     

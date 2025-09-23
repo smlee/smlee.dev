@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     ...(hasPosts ? ['/writing'] : [] as string[]),
     '/resume',
+    '/privacy-policy',
   ];
   return routes.map((path) => ({
     url: `${base}${path}`,

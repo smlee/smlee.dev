@@ -22,11 +22,18 @@ export function Analytics({
   enabled = process.env.NODE_ENV === 'production',
   providers = { google: true, plausible: false },
 }: AnalyticsProps) {
+  // Debug check for production mode
+  console.log('[Analytics Component] Environment check:', { 
+    NODE_ENV: process.env.NODE_ENV,
+    isProduction: process.env.NODE_ENV === 'production',
+    enabled
+  });
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   // Initialize analytics on mount
   useEffect(() => {
+    console.log('[Analytics Component] Initializing with:', { enabled, providers });
     analytics.init({
       enabled,
       providers,
