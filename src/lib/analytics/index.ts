@@ -28,13 +28,8 @@ class Analytics {
     // Debug analytics initialization
     console.log('[Analytics] Initializing analytics module');
     
-    // Check consent status but don't block initialization during debugging
+    // Read current consent preferences (used to set Consent Mode on providers)
     const preferences = consentManager.getPreferences();
-    if (preferences.hasResponded && !preferences.analytics) {
-      console.info('[Analytics] Analytics would normally be disabled due to user consent preferences');
-      // During debugging, we'll continue anyway to verify the setup
-      // return;
-    }
     
     // Initialize Google Analytics if enabled
     if (config.providers.google) {
@@ -50,6 +45,8 @@ class Analytics {
         const google = new GoogleAnalyticsProvider(measurementId);
         this.providers.push(google);
         google.init();
+        // Initialize Consent Mode state on GA provider
+        google.updateConsent?.(preferences);
       } else {
         console.warn('[Analytics] Google Analytics measurement ID not provided. GA tracking disabled.');
       }
@@ -65,6 +62,13 @@ class Analytics {
       plausible.init();
     }
     
+    // Subscribe to consent changes and update providers (e.g., Google Consent Mode)
+    consentManager.subscribe((prefs) => {
+      this.providers.forEach((provider) => {
+        provider.updateConsent?.(prefs);
+      });
+    });
+
     this.initialized = true;
   }
 
@@ -73,9 +77,7 @@ class Analytics {
    */
   trackPageView(url: string): void {
     if (!this.config.enabled) return;
-    
-    // Check consent before tracking
-    if (!consentManager.isAllowed('analytics')) return;
+    // Allow page views before consent. Consent Mode will handle storage.
     
     this.providers.forEach(provider => {
       try {

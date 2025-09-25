@@ -1,6 +1,7 @@
 /**
  * Core analytics types for the application
  */
+import type { ConsentPreferences } from '../consent/types';
 
 export interface AnalyticsEvent {
   name: string;
@@ -22,6 +23,11 @@ export interface AnalyticsProvider {
    * Track a custom event
    */
   trackEvent: (event: AnalyticsEvent) => void;
+
+  /**
+   * Optionally update consent state for providers that support Consent Mode
+   */
+  updateConsent?: (preferences: ConsentPreferences) => void;
 }
 
 export interface AnalyticsConfig {
