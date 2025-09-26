@@ -100,6 +100,23 @@ export class GoogleAnalyticsProvider implements AnalyticsProvider {
       if (DIAGNOSTIC) console.log('[Analytics] page_view payload', payload);
       window.gtag('event', 'page_view', payload);
       if (DIAGNOSTIC) console.log('[Analytics] Page view event sent');
+
+      // DIAGNOSTIC: Also emit a direct image ping to GA4 collect to prove whether
+      // the browser/network is blocking collection endpoints. This does not
+      // replace gtag, it merely helps us observe a network request.
+      if (DIAGNOSTIC) {
+        try {
+          const dl = encodeURIComponent(typeof location !== 'undefined' ? location.href : '');
+          const dt = encodeURIComponent(typeof document !== 'undefined' ? document.title : '');
+          const cid = `${Math.floor(Math.random() * 1e10)}.${Date.now()}`; // ephemeral client id
+          const img = new Image();
+          img.referrerPolicy = 'no-referrer-when-downgrade';
+          img.src = `https://region1.google-analytics.com/g/collect?v=2&tid=${encodeURIComponent(this.measurementId)}&cid=${encodeURIComponent(cid)}&en=page_view&dl=${dl}&dt=${dt}`;
+          if (DIAGNOSTIC) console.log('[Analytics][diagnostic] fired image beacon to GA collect', img.src);
+        } catch (e) {
+          console.warn('[Analytics][diagnostic] failed to fire image beacon', e);
+        }
+      }
     } catch (error) {
       console.error('[Analytics] Error tracking page view:', error);
     }
