@@ -28,25 +28,17 @@ export class GoogleAnalyticsProvider implements AnalyticsProvider {
     // Debug logging
     if (DIAGNOSTIC) console.log(`[Analytics] INIT CHECK - Google Analytics with ID: ${this.measurementId}`);
     
-    // Don't initialize twice
-    if (document.querySelector('script[src*="www.googletagmanager.com/gtag/js?id="]')) {
-      // console.log('[Analytics] Google Analytics script already loaded');
-      return;
-    }
-    
-    // Initialize dataLayer
+    // Initialize dataLayer and gtag queue function BEFORE inserting script (per official snippet)
     window.dataLayer = window.dataLayer || [];
-    window.gtag = function gtag(...args: unknown[]) {
+    window.gtag = window.gtag || function gtag(...args: unknown[]) {
       if (DIAGNOSTIC) console.log('[Analytics][gtag call]', args);
       window.dataLayer?.push(args);
     };
-    
-    // Consent Mode default: deny analytics/ad storage until user consents
+
+    // Consent Mode default: set signals before any config/events are queued
     try {
       const defaultConsent = {
-        // Necessary cookies — always granted for essential security/storage
         security_storage: 'granted',
-        // Preferences/UI toggles this via functionality_storage in updateConsent
         functionality_storage: 'denied',
         ad_storage: 'denied',
         analytics_storage: 'denied',
@@ -58,29 +50,31 @@ export class GoogleAnalyticsProvider implements AnalyticsProvider {
     } catch {
       // no-op if consent api unavailable
     }
-    
-    // Initialize with timestamp
+
+    // Queue timestamp and initial config (will be processed once script loads)
     window.gtag('js', new Date());
-    
-    // Configure with measurement ID
     window.gtag('config', this.measurementId, {
-      send_page_view: false, // We'll handle page views manually for SPAs
+      // For diagnosis, allow auto page_view when DIAGNOSTIC is on.
+      send_page_view: DIAGNOSTIC ? true : false,
       debug_mode: DIAGNOSTIC,
     });
-    
-    // Load the script
-    try {
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${this.measurementId}`;
-      document.head.appendChild(script);
-      // console.log('[Analytics] Google Analytics script added to DOM');
-      
-      // Verify script loads
-      script.onload = () => { if (DIAGNOSTIC) console.log('[Analytics] Google Analytics script loaded successfully'); };
-      script.onerror = (e) => console.error('[Analytics] Failed to load Google Analytics script:', e);
-    } catch (error) {
-      console.error('[Analytics] Error initializing Google Analytics:', error);
+
+    // Finally, insert the GA script tag so it can drain the queue
+    let scriptEl = document.querySelector('script[src*="www.googletagmanager.com/gtag/js?id="]') as HTMLScriptElement | null;
+    if (!scriptEl) {
+      try {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${this.measurementId}`;
+        document.head.appendChild(script);
+        script.onload = () => { if (DIAGNOSTIC) console.log('[Analytics] Google Analytics script loaded successfully'); };
+        script.onerror = (e) => console.error('[Analytics] Failed to load Google Analytics script:', e);
+        scriptEl = script;
+      } catch (error) {
+        console.error('[Analytics] Error injecting Google Analytics script:', error);
+      }
+    } else if (DIAGNOSTIC) {
+      console.log('[Analytics] Google Analytics script already present');
     }
   }
 
@@ -99,7 +93,9 @@ export class GoogleAnalyticsProvider implements AnalyticsProvider {
         page_path: url,
         page_location: typeof location !== 'undefined' ? location.href : undefined,
         page_title: typeof document !== 'undefined' ? document.title : undefined,
-        send_to: this.measurementId,
+        // do not set send_to for GA4; measurement id is bound via config
+        // include debug_mode to surface events in DebugView reliably
+        debug_mode: DIAGNOSTIC || undefined,
       } as Record<string, unknown>;
       if (DIAGNOSTIC) console.log('[Analytics] page_view payload', payload);
       window.gtag('event', 'page_view', payload);
