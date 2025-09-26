@@ -20,6 +20,11 @@ class ConsentManager {
     const savedPreferences = this.loadPreferences();
     if (savedPreferences) {
       this.preferences = savedPreferences;
+      // Notify listeners so providers (e.g., GA Consent Mode) receive the
+      // correct state immediately on page load when a user has previously
+      // made a choice. Without this, providers may remain in the default
+      // denied state until the user interacts again in this session.
+      this.notifyListeners();
     }
 
     return this.preferences;
