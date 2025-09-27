@@ -15,7 +15,8 @@ export const metadata = {
 export default function AboutPage() {
   const content = loadContentPack();
   const experience = content.experience ?? [];
-  const skills = content.skills ?? [];
+  // skills are categorized as a map of category -> list of skills
+  const skills = content.skills ?? {};
   const summary: string | undefined =
     (content as { about?: { summary?: string } } | null)?.about?.summary ?? content.person?.subtext ?? undefined;
 
