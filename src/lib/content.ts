@@ -40,7 +40,8 @@ export type ContentPack = {
     bullets?: string[];
     logo?: string | null;
   }>;
-  skills?: string[];
+  // Organized skills by category, e.g. { "Frontend": ["React","Next.js"] }
+  skills?: Record<string, string[]>;
   hire?: {
     services?: string[];
     packages?: string[];

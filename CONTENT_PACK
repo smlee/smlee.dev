@@ -1,8 +1,8 @@
 {
   "person": {
     "name": "Sangmin Lee",
-    "tagline": "Senior Full-Stack Engineer & SaaS Founder",
-    "subtext": "I’m Sangmin Lee, a full-stack engineer with over 10 years of experience building and scaling complex systems, and the founder of Mindcraftor and RankLabs, where I turn ambitious ideas into usable products.",
+    "tagline": "Frontend-Focused Full‑Stack Engineer & SaaS Founder",
+    "subtext": "Frontend‑focused full‑stack engineer with 10+ years building SaaS and enterprise applications. Specialized in UI architecture, reusable libraries, performance optimization, and experimentation at scale (200+ enterprise tests). Operates at staff level across mentoring, design/product collaboration, and roadmap influence. Founder of Mindcraftor.ai (2,000+ users) with expertise in AI workflows, SaaS billing, and product‑market validation.",
     "location": "Palisades Park, NJ",
     "email": "sangmlee23@gmail.com",
     "links": {
@@ -83,24 +83,25 @@
 
   "experience": [
     {
-      "role": "Co-Founder",
+      "role": "Senior Fullstack Engineer (Co‑Founder)",
       "company": "Mindcraftor",
       "date_start": "2025-03",
       "date_end": null,
       "bullets": [
-        "End-to-end product build: Next.js, Node.js, Supabase, Stripe",
-        "Idea generation, validation engine, autonomous CX agent",
-        "RAG workflows + analytics"
+        "Built AI SaaS (Next.js, Supabase, Stripe) scaling to 2,000+ users with paid conversions",
+        "Integrated OpenAI Responses API with live search for idea generation and validation workflows",
+        "Architected modular APIs and database schemas enabling CX agents, compliance copilots, and real‑estate analytics"
       ]
     },
     {
-      "role": "Experimental Engineer",
+      "role": "Senior Frontend Engineer (Consultant)",
       "company": "SAE.SO",
       "date_start": "2021-06",
       "date_end": null,
       "bullets": [
-        "Client-side A/B tests on Next.js/WordPress (Optimizely/Google Optimize)",
-        "DOM-diffing & MutationObserver patterns for restricted environments"
+        "Delivered 200+ client‑side A/B experiments for a Fortune 1000 health & wellness enterprise",
+        "Engineered DOM‑diffing and MutationObserver strategies to inject experiments into dynamic WordPress/Next.js apps",
+        "Partnered with PMs/CRO analysts to align experiments with KPIs and ensured test quality via guardrails"
       ]
     },
     {
@@ -109,9 +110,9 @@
       "date_start": "2021-01",
       "date_end": "2025-05",
       "bullets": [
-        "Reduced UI load times by 28%",
-        "Secure interactive 3D geospatial visualization with CesiumJS",
-        "Accessibility & federal compliance collaboration"
+        "Led frontend modernization with lazy‑loaded modules, modular libraries, and state management for responsiveness",
+        "Optimized Cesium 3D apps with Web Workers and 2D fallback, achieving ~38% faster load times",
+        "Mentored junior engineers; set frontend standards adopted across projects; supported multi‑million‑dollar contracts"
       ]
     },
     {
@@ -120,8 +121,9 @@
       "date_start": "2016-12",
       "date_end": "2021-01",
       "bullets": [
-        "Node.js + Angular enterprise apps from inception to scale",
-        "Roadmap collaboration, mentoring, and best practices"
+        "Pioneered library‑first architecture: modularized e‑signature flows into reusable libraries",
+        "Created framework‑agnostic embeds (Angular custom elements / Web Components) usable across JS frameworks",
+        "Mentored devs on scalable UI practices and modularization"
       ]
     },
     {
@@ -130,16 +132,44 @@
       "date_start": "2015-09",
       "date_end": "2016-12",
       "bullets": [
-        "Migrated legacy Laravel to Angular/React + Node.js",
-        "Improved responsiveness and conversion with CRO team"
+        "Led frontend revamp of high‑traffic media sites (millions of monthly visitors)",
+        "Defined coding standards and mentored engineers; delivered conversion‑focused experiments with CRO/design/PM"
       ]
     }
   ],
 
-  "skills": [
-    "TypeScript","Next.js","React","Node.js","Fastify","Postgres",
-    "Supabase","Stripe","Redis","CesiumJS","Tailwind","Framer Motion","Nginx","PM2","Optimizely","Angular"
-  ],
+  "skills": {
+    "Frontend Systems & Architecture": [
+      "TypeScript","JavaScript","React","Next.js","Angular","Zustand","NgRx","Redux","Web Components","Lazy Loading","Modular Architecture","Responsive Design"
+    ],
+    "Backend": [
+      "Node.js","Python","REST APIs","GraphQL"
+    ],
+    "Databases": [
+      "Postgres","MySQL","Supabase","MongoDB","Redis"
+    ],
+    "Testing & QA": [
+      "Unit Testing","E2E","BrowserStack"
+    ],
+    "Monitoring": [
+      "Datadog","Sentry"
+    ],
+    "Performance & Visualization": [
+      "CesiumJS","D3.js","Web Workers","State Management","3D/2D Rendering Optimization","UI Performance Profiling","Performance Optimization"
+    ],
+    "UI & Animation": [
+      "Tailwind","Framer Motion"
+    ],
+    "Cloud & DevOps": [
+      "Docker","Vercel","DigitalOcean","AWS","Nginx","PM2"
+    ],
+    "Payments & SaaS": [
+      "Stripe"
+    ],
+    "Experimentation": [
+      "Optimizely","A/B Frameworks"
+    ]
+  },
 
   "hire": {
     "services": [
